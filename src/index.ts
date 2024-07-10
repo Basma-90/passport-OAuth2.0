@@ -72,7 +72,8 @@ app.get('/profile', (req, res) => { // Protected route
         return res.redirect('/');
     }
     console.log(req.user);
-    res.send(`Hello ${req.user}`);
+    const user = req.user as IUser;
+    res.send(`Hello ${user.displayName}`);
 });
 
 const PORT = process.env.PORT || 3000;
